@@ -82,6 +82,7 @@ def main():
         scanned += len(files)
         for file in sorted(files):
             success &= scan_file(file, comment, regexp)
+    sys.stderr.flush()
     print(f"Scanned {scanned} files.")
     return int(not success)
 
