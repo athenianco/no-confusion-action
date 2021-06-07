@@ -1,0 +1,25 @@
+name: no-confusion
+description: Check text files against Unicode impostor symbols that look like regular ASCII.
+# version: 1.0.0
+author: Athenian
+inputs:
+  include:
+    description: List of file globs to check, JSON string.
+    default: "[]"
+    required: false
+  include_without_comments:
+    description: Map of file globs to check without commented lines to comment characters, JSON object string.
+    default: "{}"
+    required: false
+  exclude:
+    description: List of file globs to exclude, JSON string.
+    default: "[]"
+    required: false
+runs:
+  using: "composite"
+  steps:
+  - shell: bash
+    run: python3 main.py --include "${{ inputs.include }}" --include-without-comments "${{ inputs.include_without_comments }}" --exclude "${{ inputs.exclude }}"
+branding:
+  color: purple
+  icon: bar-chart-2
