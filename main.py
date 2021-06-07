@@ -9,7 +9,7 @@ import sys
 
 def compile_regex() -> re.Pattern:
     try:
-        with open("regexp") as fin:
+        with Path(__file__).with_name("regexp").open() as fin:
             return re.compile(fin.read())
     except FileNotFoundError:
         from confusables import confusable_characters
