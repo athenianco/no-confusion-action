@@ -83,7 +83,7 @@ def main():
         for file in sorted(files):
             success &= scan_file(file, comment, regexp)
     print(f"Scanned {scanned} files.")
-    return int(success)
+    return int(not success)
 
 
 if __name__ == "__main__":
