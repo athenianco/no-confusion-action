@@ -1,6 +1,5 @@
 name: no-confusion
 description: Check text files against Unicode impostor symbols that look like regular ASCII.
-# version: 1.0.0
 author: Athenian
 inputs:
   include:
