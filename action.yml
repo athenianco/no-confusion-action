@@ -18,7 +18,7 @@ runs:
   using: "composite"
   steps:
   - shell: bash
-    run: python3 main.py --include "${{ inputs.include }}" --include-without-comments "${{ inputs.include_without_comments }}" --exclude "${{ inputs.exclude }}"
+    run: python3 ${{ github.action_path }}/main.py --include "${{ inputs.include }}" --include-without-comments "${{ inputs.include_without_comments }}" --exclude "${{ inputs.exclude }}"
 branding:
   color: purple
   icon: bar-chart-2
