@@ -6,8 +6,8 @@ inputs:
     description: List of file globs to check, JSON string.
     default: "[]"
     required: false
-  include_without_comments:
-    description: Map of file globs to check without commented lines to comment characters, JSON object string.
+  exclude_patterns:
+    description: Map of file globs to corresponding regular expressions that should be ignored, JSON object string.
     default: "{}"
     required: false
   exclude:
@@ -20,7 +20,7 @@ runs:
   - shell: bash
     run: |
       set -x
-      python3 ${{ github.action_path }}/main.py --include '${{ inputs.include }}' --include-without-comments '${{ inputs.include_without_comments }}' --exclude '${{ inputs.exclude }}'
+      python3 ${{ github.action_path }}/main.py --include '${{ inputs.include }}' --exclude-patterns '${{ inputs.exclude_patterns }}' --exclude '${{ inputs.exclude }}'
 branding:
   color: purple
   icon: bar-chart-2
